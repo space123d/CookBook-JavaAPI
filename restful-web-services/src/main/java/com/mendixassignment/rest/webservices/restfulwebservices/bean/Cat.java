@@ -18,7 +18,7 @@ public class Cat {
 	private String content;
 	
 	
-
+	 
 
 
 	public Cat(Integer id, String content) {
@@ -26,6 +26,11 @@ public class Cat {
 		this.id = id;
 		this.content = content;
 		
+	}
+
+
+	public Cat() {
+		super();
 	}
 
 

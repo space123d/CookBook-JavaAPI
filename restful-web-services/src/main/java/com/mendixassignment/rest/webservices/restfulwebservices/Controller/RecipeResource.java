@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Recipe;
 import com.mendixassignment.rest.webservices.restfulwebservices.resources.HelloWorldBean;
 import com.mendixassignment.rest.webservices.restfulwebservices.resources.RecipeDaoService;
+import com.mendixassignment.rest.webservices.restfulwebservices.resources.RecipeRepository;
 
 
 @RestController
@@ -18,11 +19,13 @@ public class RecipeResource {
 	@Autowired
 	private RecipeDaoService service;
 	
+	@Autowired
+	private RecipeRepository recipeRepository;
 	
 	@GetMapping("/recipes")
 	public List<Recipe> retrieveAllRecipes(){
 		  
-		return service.findAll();
+		return recipeRepository.findAll();
 	}
 	
 

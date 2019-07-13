@@ -17,7 +17,9 @@ public class Amount {
 	private String quantity;
 	private String Unit;
 	
-	
+	@OneToOne(mappedBy="amount")
+	@JsonIgnore
+	private Ing ing;
 	
 
 	public Amount(Integer id, String quantity, String unit) {
@@ -26,6 +28,21 @@ public class Amount {
 		this.quantity = quantity;
 		this.Unit = unit;
 		
+	}
+
+
+	public Amount() {
+		super();
+	}
+
+
+	public Ing getIng() {
+		return ing;
+	}
+
+
+	public void setIng(Ing ing) {
+		this.ing = ing;
 	}
 
 

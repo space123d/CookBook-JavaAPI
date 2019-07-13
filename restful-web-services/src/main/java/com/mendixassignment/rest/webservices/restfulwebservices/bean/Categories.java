@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Categories {
@@ -21,6 +22,7 @@ public class Categories {
 	
 	
 	@OneToMany(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private List<Cat> cat;
 	
 
@@ -35,6 +37,14 @@ public class Categories {
 
 
 	
+
+	public Categories() {
+		super();
+	}
+
+
+
+
 
 	public List<Cat> getCat() {
 		return cat;

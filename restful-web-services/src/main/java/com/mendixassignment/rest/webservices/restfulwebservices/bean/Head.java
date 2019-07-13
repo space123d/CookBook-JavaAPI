@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Head {
@@ -20,7 +21,7 @@ public class Head {
 	
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Categories categories;
 
 	
@@ -32,6 +33,8 @@ public class Head {
 		
 		this.categories = categories;
 	}
+	
+	
 	public Head() {
 		// TODO Auto-generated constructor stub
 	}

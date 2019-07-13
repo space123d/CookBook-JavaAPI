@@ -1,8 +1,10 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.bean;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -20,9 +22,17 @@ public class Ing {
 	
 	
 	
-	@OneToOne(fetch = FetchType.LAZY)
 	
-	private Amount amt;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "amount_id", referencedColumnName = "id")
+	private Amount amount;
+
+	
+	
+	
+	public Ing() {
+		super();
+	}
 
 	public String getItem() {
 		return item;
@@ -34,12 +44,14 @@ public class Ing {
 
 	
 
-	public Amount getAmt() {
-		return amt;
+	
+
+	public Amount getAmount() {
+		return amount;
 	}
 
-	public void setAmt(Amount amt) {
-		this.amt = amt;
+	public void setAmount(Amount amount) {
+		this.amount = amount;
 	}
 
 	public Ing(Integer id, String item, Amount amt) {
@@ -47,7 +59,7 @@ public class Ing {
 		this.id = id;
 		this.item = item;
 		
-		this.amt = amt;
+		this.amount = amt;
 	}
 
 	public Integer getId() {
@@ -60,7 +72,7 @@ public class Ing {
 
 	@Override
 	public String toString() {
-		return String.format("Ing [id=%s, item=%s, amt=%s]", id, item, amt);
+		return String.format("Ing [id=%s, item=%s, amount=%s]", id, item, amount);
 	}
 	
 	

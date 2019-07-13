@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -24,18 +25,22 @@ public class Recipe {
 	
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Head head;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Ingredients ingredients;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Directions directions;
 
 
+
+	public Recipe() {
+		super();
+	}
 
 	public Head getHead() {
 		return head;
