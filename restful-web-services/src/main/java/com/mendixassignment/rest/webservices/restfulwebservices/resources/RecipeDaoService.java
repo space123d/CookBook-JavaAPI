@@ -1,5 +1,7 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.resources;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +18,12 @@ import com.mendixassignment.rest.webservices.restfulwebservices.bean.Ingredients
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Recipe;
 
 
+
 @Component
 public class RecipeDaoService {
 	
 private static List<Recipe> recipeList = new ArrayList<>();
 
-
-private static int recipeCount=3;
 
 
 static {

@@ -1,4 +1,5 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.bean;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ public class Directions {
 	@GeneratedValue
 	private Integer id;
 	
+	@Column(length=10485760)
 	private String step;
 	
 	

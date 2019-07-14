@@ -1,6 +1,7 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.bean;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class IngDiv {
 	
 	
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	private List<Ing> ing;
 	
 	
