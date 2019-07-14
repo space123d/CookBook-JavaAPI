@@ -5,7 +5,7 @@ insert into categories values(1);
 insert into categories_cat values(1,1);
 insert into categories_cat values(1,2);
 insert into categories_cat values(1,3);
-
+ 
 insert into amount values(1,'cups','1 1/2');
 insert into ing values (1,'Toasted Almonds; chopped',1);
 

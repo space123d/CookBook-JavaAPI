@@ -5,18 +5,22 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
+@Entity(name="Head")
 public class Head {
 	@Id
 	@JsonIgnore
 	@GeneratedValue
 	private Integer id;
 	
+	@Size(min=2)
 	private String title;
+	
+
 	private Integer yield;
 	
 	
