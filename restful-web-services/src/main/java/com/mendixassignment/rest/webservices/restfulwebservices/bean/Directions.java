@@ -3,8 +3,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -13,6 +15,7 @@ public class Directions {
 	@Id
 	@JsonIgnore
 	@GeneratedValue
+	@Column(name = "id")
 	private Integer id;
 	
 	@Column(length=10485760)
@@ -20,7 +23,10 @@ public class Directions {
 	
 	
 
-	
+	   @OneToOne(mappedBy ="directions")
+	   @JsonBackReference
+	   @JoinColumn(name = "idrecipe", insertable = false, updatable = false)
+	    private Recipe recipe;
 	
 	public Directions(Integer id, String step) {
 		super();
@@ -29,6 +35,14 @@ public class Directions {
 		
 	}
 	
+	public Recipe getRecipe() {
+		return recipe;
+	}
+
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
+	}
+
 	public Directions() {
 		// TODO Auto-generated constructor stub
 	}

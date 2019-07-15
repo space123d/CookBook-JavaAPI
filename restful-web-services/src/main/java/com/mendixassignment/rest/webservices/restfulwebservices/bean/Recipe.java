@@ -1,14 +1,18 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.bean;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -21,20 +25,27 @@ public class Recipe {
 	
 	@Id
 	@JsonIgnore
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idrecipe", unique = true, nullable = false)
 	private Integer id;
 	
 	
 	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@JoinColumn(name = "head_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private Head head;
 	
 	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@JoinColumn(name = "ingredients_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private Ingredients ingredients;
 	
 	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@JoinColumn(name = "directions_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private Directions directions;
 
 

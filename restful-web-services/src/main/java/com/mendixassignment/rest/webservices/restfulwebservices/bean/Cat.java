@@ -1,9 +1,11 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.bean;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="Cat")
@@ -15,7 +17,9 @@ public class Cat {
 	
 	private String content;
 	
-	
+	@ManyToOne
+	 @JsonBackReference
+	private Categories categories;
 	 
 
 
@@ -24,6 +28,16 @@ public class Cat {
 		this.id = id;
 		this.content = content;
 		
+	}
+
+
+	public Categories getCategories() {
+		return categories;
+	}
+
+
+	public void setCategories(Categories categories) {
+		this.categories = categories;
 	}
 
 

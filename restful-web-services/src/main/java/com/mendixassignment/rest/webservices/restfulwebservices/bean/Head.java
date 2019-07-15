@@ -1,23 +1,29 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.bean;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="Head")
 public class Head {
 	@Id
 	@JsonIgnore
 	@GeneratedValue
+	@Column(name = "id")
 	private Integer id;
 	
 	@Size(min=2)
+	@NotNull
 	private String title;
 	
 
@@ -25,10 +31,17 @@ public class Head {
 	
 	
 	
-	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	 @JoinColumn(name = "categories_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private Categories categories;
 
+
+	   @OneToOne(mappedBy ="head")
+	   @JsonBackReference
+	   @JoinColumn(name = "idrecipe", insertable = false, updatable = false)
+	   private Recipe recipe;
 	
 	public Head(Integer id, String title, Integer yield, Categories categories) {
 		super();
@@ -40,6 +53,16 @@ public class Head {
 	}
 	
 	
+	public Recipe getRecipe() {
+		return recipe;
+	}
+
+
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
+	}
+
+
 	public Head() {
 		// TODO Auto-generated constructor stub
 	}

@@ -3,16 +3,17 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Entity
+@Entity(name= "Categories")
 public class Categories {
 	
 	@Id
@@ -22,12 +23,15 @@ public class Categories {
 	
 	
 	
-	@OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="categories",cascade=CascadeType.ALL)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	 @JsonManagedReference
 	private List<Cat> cat;
 	
 
-	
+	   @OneToOne(mappedBy = "categories")
+	   @JsonBackReference
+	    private Head head;
 	
 	public Categories(Integer id, List<Cat> cat) {
 		super();
@@ -38,6 +42,22 @@ public class Categories {
 
 
 	
+
+	public Head getHead() {
+		return head;
+	}
+
+
+
+
+
+	public void setHead(Head head) {
+		this.head = head;
+	}
+
+
+
+
 
 	public Categories() {
 		super();
