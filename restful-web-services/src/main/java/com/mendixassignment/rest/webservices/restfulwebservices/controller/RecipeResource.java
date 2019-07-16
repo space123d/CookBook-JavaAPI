@@ -27,14 +27,13 @@ import com.mendixassignment.rest.webservices.restfulwebservices.bean.Head;
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Recipe;
 import com.mendixassignment.rest.webservices.restfulwebservices.exception.ExceptionResponse;
 import com.mendixassignment.rest.webservices.restfulwebservices.exception.RecipeNotFoundException;
-import com.mendixassignment.rest.webservices.restfulwebservices.resources.RecipeDaoService;
 
 
 @RestController
 public class RecipeResource {
 
-	@Autowired
-	private RecipeDaoService service;
+	/*@Autowired
+	private RecipeDaoService service;*/
 
 
 	@Autowired
@@ -56,8 +55,8 @@ public class RecipeResource {
 	}
 
 	//retrieve all categories
-	@GetMapping("/rest/get/categories")
-	public List<Cat> retrievebyRecipeCategories(){
+	@GetMapping("/rest/get/recipes/categories")
+	public List<Cat> retrieveAllRecipeCategories(){
 
 		List<Cat> cat=catRepository.findAllCategories();
 		
@@ -70,23 +69,27 @@ public class RecipeResource {
 
 	}
 	//retrieve all recipe names in database with yield
-	@GetMapping("/rest/get/head")
-	public List<Head> retrievebyRecipeHead(){
+	@GetMapping("/rest/get/recipes/names")
+	public List<Head> retrieveAllRecipeNames(){
 
-		return headRepository.findAllHead();
+		return headRepository.findAllRecipeNames();
 
 	}
 
 
 	//retrieve recipe of selected category
 	@GetMapping("/rest/get/recipe/{category}")
-	public Recipe retrieveAllRecipeCategory(@PathVariable String category){
+	public Recipe retrieveAllRecipebyCategory(@PathVariable String category){
 
 
 		Cat C=  catRepository.findCatbyContent(category);
+		if(C==null)
+			throw new RecipeNotFoundException("Selected Category "+category+" Not Found");
 		Categories cat=C.getCategories();
 		Head h = cat.getHead();
 		Recipe recipe = h.getRecipe();
+		
+		
 		
 		/*Resource<Recipe> resource = new Resource<Recipe>(recipe);
 		ControllerLinkBuilder linkTo =
@@ -145,10 +148,10 @@ public class RecipeResource {
 
 	}
 
-	//static service for testing purpose only
+	/*//static service for testing purpose only
 	@GetMapping("/recipes")
 	public List<Recipe> retrieveAllRecipe(){
 
 		return service.findAll();
-	}
+	}*/
 }

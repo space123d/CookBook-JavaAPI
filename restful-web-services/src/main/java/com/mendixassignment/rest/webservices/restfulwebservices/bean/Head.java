@@ -32,6 +32,7 @@ public class Head {
 	
 	
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	 @JoinColumn(name = "categories_id", referencedColumnName = "id")
 	@JsonManagedReference

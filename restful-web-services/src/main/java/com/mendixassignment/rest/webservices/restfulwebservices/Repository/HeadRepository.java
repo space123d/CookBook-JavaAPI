@@ -21,7 +21,7 @@ public interface HeadRepository extends JpaRepository<Head, Integer>{
 
 	
 	@Query("SELECT h FROM Head h")
-	List<Head> findAllHead();
+	List<Head> findAllRecipeNames();
 	
 
 
