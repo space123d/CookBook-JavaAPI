@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonFilter;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="Cat")
@@ -16,7 +16,7 @@ public class Cat {
 	@JsonIgnore
 	@GeneratedValue
 	private Integer id;
-	@JsonFilter("recipeFilter")
+	
 	private String content;
 	
 	@ManyToOne

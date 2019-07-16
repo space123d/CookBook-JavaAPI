@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -101,6 +102,23 @@ public class RecipeResource {
 
 
 	}
+	
+	//delete recipe by title
+		@GetMapping("/rest/get/recipe/search/{title}")
+		public Recipe retrieveRecipebySearch(@PathVariable String title) {
+			
+			Head h = headRepository.findAllRecipebySearchingName(title);
+			if(h==null) 
+				throw new RecipeNotFoundException("Record with a title "+title+" not found in database ");
+			
+			Recipe recipe=h.getRecipe();
+			
+			if(recipe==null ) 
+				throw new RecipeNotFoundException("Record with a title "+title+" not found in database ");
+			
+			return recipe;
+			
+		}
 
 	//creates recipes
 	@PostMapping("/rest/post/recipes")

@@ -25,7 +25,7 @@ public class FilteringController {
 		List<Recipe> recipe = recipeRepository.findAll();
 		MappingJacksonValue mapping = new MappingJacksonValue(recipe);
 		
-	SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.serializeAllExcept("content");
+	SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("content");
 		FilterProvider filters =new SimpleFilterProvider().addFilter("recipeFilter", filter);
 		
 		mapping.setFilters(filters);
@@ -33,5 +33,7 @@ public class FilteringController {
 		
 		return mapping;
 	}
+	
+
 	
 }

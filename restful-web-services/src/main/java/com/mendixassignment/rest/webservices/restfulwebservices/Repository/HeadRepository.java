@@ -23,6 +23,9 @@ public interface HeadRepository extends JpaRepository<Head, Integer>{
 	@Query("SELECT h FROM Head h")
 	List<Head> findAllRecipeNames();
 	
+	@Query("SELECT h FROM Head h where h.title LIKE %?1%")
+	Head findAllRecipebySearchingName(String title);
+	
 
 
 	

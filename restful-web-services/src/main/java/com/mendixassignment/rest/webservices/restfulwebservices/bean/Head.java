@@ -10,11 +10,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="Head")
+
 public class Head {
 	@Id
 	@JsonIgnore
@@ -24,9 +26,10 @@ public class Head {
 	
 	@Size(min=2)
 	@NotNull
+
 	private String title;
 	
-
+	
 	private Integer yield;
 	
 	
