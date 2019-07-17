@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -25,11 +26,11 @@ public class Head {
 	private Integer id;
 	
 	@Size(min=2)
-	@NotNull
-
-	private String title;
+	@NotNull(message = "title cannot be null")
+    private String title;
 	
-	
+	@NotNull(message = "Yield cannot be null")
+	@Min(value = 1, message = "Yield should not be less than 1")
 	private Integer yield;
 	
 	

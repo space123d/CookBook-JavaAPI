@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,6 +16,7 @@ public class Ing {
 	@GeneratedValue
 	private Integer id;
 	
+	 @NotNull(message = "Item cannot be null")
 	private String item;
 	
 	

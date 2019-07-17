@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -17,6 +18,7 @@ public class Cat {
 	@GeneratedValue
 	private Integer id;
 	
+	@NotNull(message = "Category Name cannot be null")
 	private String content;
 	
 	@ManyToOne

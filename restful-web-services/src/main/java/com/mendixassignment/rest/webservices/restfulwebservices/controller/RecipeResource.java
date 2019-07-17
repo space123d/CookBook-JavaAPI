@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -51,7 +51,7 @@ public class RecipeResource {
 	@GetMapping("/rest/get/recipes")
 	public List<Recipe> retrieveAllRecipes(){
 
-		return recipeRepository.findAll();
+		return recipeRepository.findAll() ;
 
 	}
 
@@ -146,7 +146,20 @@ public class RecipeResource {
 
 	}
 
-
+	//updates recipe with the input title
+	@PutMapping(path="/rest/put/recipe/{title}")
+	public ResponseEntity<Recipe> updateRecipe(@PathVariable String title,@RequestBody Recipe recipe) {
+		
+		Head h = headRepository.findAllRecipebySearchingName(title);
+		if(h==null) 
+			throw new RecipeNotFoundException("Record with a title "+title+" not found in database ");
+		
+		
+		Recipe updatedRecipe=   recipeRepository.save(recipe);
+	  
+	    return ResponseEntity.ok(updatedRecipe); }
+	
+	
 	//delete recipe by title
 	@DeleteMapping("/rest/delete/recipe/{title}")
 	public ResponseEntity<Object> deleteRecipe(@PathVariable String title) {
