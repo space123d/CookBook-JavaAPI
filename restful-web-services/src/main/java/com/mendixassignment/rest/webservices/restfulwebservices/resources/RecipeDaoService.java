@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Amount;
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Cat;
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Categories;
@@ -35,7 +34,7 @@ static {
 	Cat cat1 = new Cat(5, "cake");
 	listcat.add(cat1);
 	Categories categories = new Categories(45, listcat);
-	Head head= new Head(3, "title", 66, categories);
+	Head head= new Head(3, "Amaretto Cake", 66, categories);
 	
 	Amount amt=new Amount(3, "2", "33");
 	Ing ing = new Ing(2,"ing",amt);

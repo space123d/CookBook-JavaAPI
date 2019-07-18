@@ -28,10 +28,11 @@ import com.mendixassignment.rest.webservices.restfulwebservices.bean.Head;
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Recipe;
 import com.mendixassignment.rest.webservices.restfulwebservices.exception.ExceptionResponse;
 import com.mendixassignment.rest.webservices.restfulwebservices.exception.RecipeNotFoundException;
+import com.mendixassignment.rest.webservices.restfulwebservices.resources.RecipeDaoService;
 
 
 @RestController
-public class RecipeResource {
+public class RecipeController {
 
 	/*@Autowired
 	private RecipeDaoService service;*/
@@ -44,7 +45,7 @@ public class RecipeResource {
 	@Autowired
 	private HeadRepository headRepository;
 	@Autowired
-
+	private RecipeDaoService service;
 
 
 	//retrieve all recipes
@@ -59,7 +60,7 @@ public class RecipeResource {
 	@GetMapping("/rest/get/recipes/categories")
 	public List<Cat> retrieveAllRecipeCategories(){
 
-		List<Cat> cat=catRepository.findAllCategories();
+		List<Cat> cat=catRepository.findAll();
 		
 		if(cat==null)
 			throw new RecipeNotFoundException("Categories Not Found");
@@ -73,7 +74,7 @@ public class RecipeResource {
 	@GetMapping("/rest/get/recipes/names")
 	public List<Head> retrieveAllRecipeNames(){
 
-		return headRepository.findAllRecipeNames();
+		return headRepository.findAll();
 
 	}
 
@@ -178,11 +179,11 @@ public class RecipeResource {
 		return ResponseEntity.ok().build();
 
 	}
-
-	/*//static service for testing purpose only
-	@GetMapping("/recipes")
+	//static service for testing purpose only
+	@GetMapping("/dummy-recipes")
 	public List<Recipe> retrieveAllRecipe(){
 
 		return service.findAll();
-	}*/
+	}
+	
 }

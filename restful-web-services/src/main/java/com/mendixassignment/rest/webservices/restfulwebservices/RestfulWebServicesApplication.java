@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,14 +24,15 @@ import com.mendixassignment.rest.webservices.restfulwebservices.Repository.Recip
 
 @SpringBootApplication
 public class RestfulWebServicesApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(RestfulWebServicesApplication.class, args);
 		
 	}
 	
+	
 	@Bean
-	CommandLineRunner runner(RecipeRepository recipeRepository) {
+	CommandLineRunner runner( RecipeRepository recipeRepository) {
 		return args -> {
 			// reading json file and writing to inMemory db
 			ObjectMapper mapper = new ObjectMapper();
