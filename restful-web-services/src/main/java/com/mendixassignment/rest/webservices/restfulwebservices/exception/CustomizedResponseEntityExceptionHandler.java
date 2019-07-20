@@ -19,19 +19,19 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
-	ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),request.getDescription(false));
+	ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),HttpStatus.INTERNAL_SERVER_ERROR,ex.getLocalizedMessage() ,ex.getMessage(),request.getDescription(false));
 	return new ResponseEntity<Object>(exceptionResponse,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	@ExceptionHandler(RecipeNotFoundException.class)
 	public final ResponseEntity<Object> handleUserNotFoundException(RecipeNotFoundException ex, WebRequest request) {
-		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),ex.getMessage(),request.getDescription(false));
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),HttpStatus.NOT_FOUND,ex.getLocalizedMessage(),ex.getMessage(),request.getDescription(false));
 	return new ResponseEntity<Object>(exceptionResponse,HttpStatus.NOT_FOUND);
 	}	
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,HttpHeaders headers, HttpStatus status, WebRequest request) {
-		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),"Validation Failed",ex.getBindingResult().toString());
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),HttpStatus.BAD_REQUEST,ex.getLocalizedMessage(),"Validation Failed",ex.getBindingResult().toString());
 	return new ResponseEntity(exceptionResponse,HttpStatus.BAD_REQUEST);
 	}
 	

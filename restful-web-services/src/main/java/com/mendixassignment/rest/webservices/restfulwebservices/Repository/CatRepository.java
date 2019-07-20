@@ -10,8 +10,10 @@ import com.mendixassignment.rest.webservices.restfulwebservices.bean.Cat;
 @Repository
 public interface CatRepository extends JpaRepository<Cat, Integer>{
 
-
 	@Query("SELECT c FROM Cat c where c.content=?1")
-    Cat findCatbyContent(String content);
+    Cat findAllCatbyContent(String content);
+
+	@Query("SELECT DISTINCT(c.content) FROM Cat c where c.content=?1")
+    Cat findDistinctCatbyContent(String content);
 	
 }

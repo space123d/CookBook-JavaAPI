@@ -17,127 +17,107 @@
         },
         "yield": "6"
       },
-      "ingredients": {
-        "ingdiv": [{
-          "ing": [
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "pound"
+      "ingredients": {  "ingdiv": [
+          {
+          "title": "General",
+            "ing": [
+              {
+                "amount": {
+                  "quantity": "1 1/2",
+                  "unit": "cups"
+                },
+                "item": "Toasted Almonds; chopped"
               },
-              "item": "Ground chuck or lean ground; beef"
-            },
-            {
-              "amount": { "quantity": "1" },
-              "item": "Onion; large, chopped"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "can"
+              {
+                "amount": {
+                  "quantity": "1",
+                  "unit": "package"
+                },
+                "item": "Yellow cake mix; no pudding"
               },
-              "item": "Kidney beans; (12 oz)"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "can"
+              {
+                "amount": {
+                  "quantity": "1",
+                  "unit": "package"
+                },
+                "item": "Vanilla instant pudding"
               },
-              "item": "Tomato soup; undiluted"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "teaspoon"
+              {
+                "amount": { "quantity": "4" },
+                "item": "Eggs"
               },
-              "item": "Salt"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "tablespoon"
+              {
+                "amount": {
+                  "quantity": "1/2",
+                  "unit": "cups"
+                },
+                "item": "Vegetable oil"
               },
-              "item": "Chili pheadowder; (or to taste)"
-            },
-            {
-              "amount": {
-                
+              {
+                "amount": {
+                  "quantity": "1/2",
+                  "unit": "cups"
+                },
+                "item": "Water"
               },
-              "item": "Hot pepper sauce; to taste"
-            }
-          ]
-        }]
-      },
-      "directions": {
-        "step": "  Brown the meat in a little butter and cook until the meat is brown -- about 10 minutes. Add all other ingredients and let simmer for 30 minutes. Your choice of hot sauce may be added to taste. Recipe by: MasterCook Archives Posted to recipelu-digest Volume 01 Number 577 by Rodeo46898 <Rodeo46898@aol.com> on Jan 22, 1998"
-     }
-    },
-  {
-      "head": {
-        "title": "30 Minute Chili",
-        "categories": {
-          "cat": [
-                   {
-                        "content": "Main dish"
-                    },
-                    {
-                        "content": "Chilli"
-                    }
-                    
-                ]
-        },
-        "yield": "6"
-      },
-      "ingredients": {
-        "ingdiv": [{
-          "ing": [
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "pound"
+              {
+                "amount": {
+                  "quantity": "1/2",
+                  "unit": "cups"
+                },
+                "item": "Amaretto"
               },
-              "item": "Ground chuck or lean ground; beef"
-            },
-            {
-              "amount": { "quantity": "1" },
-              "item": "Onion; large, chopped"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "can"
+              {
+                "amount": {
+                  "quantity": "1",
+                  "unit": "teaspoon"
+                },
+                "item": "Almond extract"
+              }
+            ]
+          },
+          {
+            "title": "GLAZE",
+            "ing": [
+              {
+                "amount": {
+                  "quantity": "1/2",
+                  "unit": "cups"
+                },
+                "item": "Sugar"
               },
-              "item": "Kidney beans; (12 oz)"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "can"
+              {
+                "amount": {
+                  "quantity": "1/4",
+                  "unit": "cups"
+                },
+                "item": "Water"
               },
-              "item": "Tomato soup; undiluted"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "teaspoon"
+              {
+                "amount": {
+                  "quantity": "2",
+                  "unit": "tablespoons"
+                },
+                "item": "Butter"
               },
-              "item": "Salt"
-            },
-            {
-              "amount": {
-                "quantity": "1",
-                "unit": "tablespoon"
+              {
+                "amount": {
+                  "quantity": "1/4",
+                  "unit": "cups"
+                },
+                "item": "Amaretto"
               },
-              "item": "Chili pheadowder; (or to taste)"
-            },
-            {
-              "amount": {
-                
-              },
-              "item": "Hot pepper sauce; to taste"
-            }
-          ]
-        }]
+              {
+                "amount": {
+                  "quantity": "1/2",
+                  "unit": "teaspoons"
+                },
+                "item": "Almond extract"
+              }
+            ]
+          }
+        ]
+      
       },
       "directions": {
         "step": "  Brown the meat in a little butter and cook until the meat is brown -- about 10 minutes. Add all other ingredients and let simmer for 30 minutes. Your choice of hot sauce may be added to taste. Recipe by: MasterCook Archives Posted to recipelu-digest Volume 01 Number 577 by Rodeo46898 <Rodeo46898@aol.com> on Jan 22, 1998"
@@ -161,6 +141,7 @@
       },
       "ingredients": {
         "ingdiv":[ {
+         "title": "General",
           "ing": [
             {
               "amount": {
@@ -204,5 +185,82 @@
       "directions": {
         "step": "Place zucchini and butter in a 2 quart casserole. Cover with plastic wrap.  Microwave at high (100%) until tender crisp, 4 to 5 minutes. Stir in egg,pimentos and cheese. Blend well. Cover with plastic wrap. Microwave at medium (50%) until eggs are set, 10 toll minutes. Sprinkle onion rings on top. Microwave at medium (50%) until onion rings are heated, 2 to 2 1/2 minutes. Makes 6 servings. Recipe by: diane@keyway.net Posted to recipelu-digest Volume 01 Number 217 by <diane@keyway.net> on Nov 7, 1997"
       }
+    },
+     {
+        "head": {
+            "title": "30 Minute Chili",
+            "yield": "6",
+            "categories": {
+                "cat": [
+                    {
+                        "content": "Main dish"
+                    },
+                    {
+                        "content": "Chilli"
+                    }
+                ]
+            }
+        },
+        "ingredients": {
+            "ingdiv": [
+                {
+                    "title": "General",
+                    "ing": [
+                        {
+                            "item": "Ground chuck or lean ground; beef",
+                            "amount": {
+                                "quantity": "1",
+                                "unit": "pound"
+                            }
+                        },
+                        {
+                            "item": "Onion; large, chopped",
+                            "amount": {
+                                "quantity": "1",
+                                "unit": null
+                            }
+                        },
+                        {
+                            "item": "Kidney beans; (12 oz)",
+                            "amount": {
+                                "quantity": "1",
+                                "unit": "can"
+                            }
+                        },
+                        {
+                            "item": "Tomato soup; undiluted",
+                            "amount": {
+                                "quantity": "1",
+                                "unit": "can"
+                            }
+                        },
+                        {
+                            "item": "Salt",
+                            "amount": {
+                                "quantity": "1",
+                                "unit": "teaspoon"
+                            }
+                        },
+                        {
+                            "item": "Chili pheadowder; (or to taste)",
+                            "amount": {
+                                "quantity": "1",
+                                "unit": "tablespoon"
+                            }
+                        },
+                        {
+                            "item": "Hot pepper sauce; to taste",
+                            "amount": {
+                                "quantity": null,
+                                "unit": null
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "directions": {
+            "step": "  Brown the meat in a little butter and cook until the meat is brown -- about 10 minutes. Add all other ingredients and let simmer for 30 minutes. Your choice of hot sauce may be added to taste. Recipe by: MasterCook Archives Posted to recipelu-digest Volume 01 Number 577 by Rodeo46898 <Rodeo46898@aol.com> on Jan 22, 1998"
+        }
     }
   ]

@@ -1,62 +1,32 @@
 package com.mendixassignment.rest.webservices.restfulwebservices.resources;
 
-
-
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import com.mendixassignment.rest.webservices.restfulwebservices.bean.Amount;
+
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Cat;
-import com.mendixassignment.rest.webservices.restfulwebservices.bean.Categories;
-import com.mendixassignment.rest.webservices.restfulwebservices.bean.Directions;
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Head;
-import com.mendixassignment.rest.webservices.restfulwebservices.bean.Ing;
-import com.mendixassignment.rest.webservices.restfulwebservices.bean.IngDiv;
-import com.mendixassignment.rest.webservices.restfulwebservices.bean.Ingredients;
 import com.mendixassignment.rest.webservices.restfulwebservices.bean.Recipe;
-
-
-
 @Component
-public class RecipeDaoService {
-	
-private static List<Recipe> recipeList = new ArrayList<>();
+public interface RecipeDaoService {
 
-
-
-static {
+	public List<Recipe> findAll();
 	
+	public List<Cat> findAllRecipeCategories() ;
 	
-	List<Cat> listcat= new ArrayList<>();
-	Cat cat = new Cat(5, "liquor");
-	listcat.add(cat);
-	Cat cat1 = new Cat(5, "cake");
-	listcat.add(cat1);
-	Categories categories = new Categories(45, listcat);
-	Head head= new Head(3, "Amaretto Cake", 66, categories);
+	public List<Head> finaAllRecipeNames();
 	
-	Amount amt=new Amount(3, "2", "33");
-	Ing ing = new Ing(2,"ing",amt);
-	List<Ing> inglist=new ArrayList<>();
-	inglist.add(ing);
-	IngDiv ingdiv= new IngDiv(1, "ing1", inglist);
-	List<IngDiv> ingdivlist=new ArrayList<>();
-	ingdivlist.add(ingdiv);
-	Ingredients ingre= new Ingredients(12, ingdivlist);
+	public Recipe findAllRecipebyCategory(String category);
 	
-	Directions direc= new Directions(2,"stepssss");
+	public Recipe getRecipebySearch(String title) ;
 	
-	Recipe recipe1= new Recipe(200,head,ingre,direc);
-	recipeList.add(recipe1);
+	public ResponseEntity<Object> createNewRecipe(@Valid Recipe recipe);
 	
+	public ResponseEntity<Recipe> updateRecipeDetails(String title,Recipe recipe) ;
 	
-}
-
-
-	public List<Recipe> findAll() {
-		// TODO Auto-generated method stub
-		return recipeList;
-	}
-
+	public ResponseEntity<Object> deleteRecipe(String title);
+	public List<Recipe> findAlldummyrecipes();
 }

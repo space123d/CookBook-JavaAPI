@@ -17,7 +17,7 @@ import com.mendixassignment.rest.webservices.restfulwebservices.bean.Recipe;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class Repository_basictest {
+public class Repositorybasictest {
 
 	
 	@Autowired
@@ -47,7 +47,7 @@ public class Repository_basictest {
 	
 	@Test
 	public void testfindCatbyContent_catRepository() throws Exception {
-		Cat cat = catRepository.findCatbyContent("Liquor");
+		Cat cat = catRepository.findAllCatbyContent("Liquor");
 		assertEquals("Liquor",cat.getCategories().getCat().get(0).getContent());
 	}
 	

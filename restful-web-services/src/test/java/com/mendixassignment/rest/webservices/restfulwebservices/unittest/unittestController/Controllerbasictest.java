@@ -13,7 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
-public class Controller_basictest {
+public class Controllerbasictest {
 
 
 	
