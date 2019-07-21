@@ -130,7 +130,7 @@ static {
 
 		if (titleExists != null) {
 			ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),HttpStatus.BAD_REQUEST,"Bad Request","Record Exists","Record with a title "+recipe.getHead().getTitle()+" already exists");
-			return new ResponseEntity<Object>(exceptionResponse,HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Object>(exceptionResponse,HttpStatus.CONFLICT);
 		}
 
 		else {
@@ -150,11 +150,12 @@ static {
 		Head h = headRepository.findAllRecipebySearchingName(title);
 		if(h==null) 
 			throw new RecipeNotFoundException("Record with a title "+title+" not found in database ");
+		Recipe flushRecipe=h.getRecipe();
+		recipeRepository.delete(flushRecipe);
 		
-		
-		Recipe updatedRecipe=   recipeRepository.save(recipe);
+		recipeRepository.save(recipe);
 	  
-	    return ResponseEntity.ok(updatedRecipe);
+	    return ResponseEntity.ok(recipe);
 	}
 
 

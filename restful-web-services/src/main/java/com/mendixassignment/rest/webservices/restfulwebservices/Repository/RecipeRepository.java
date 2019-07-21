@@ -17,5 +17,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Integer>{
 	@Query("SELECT r FROM Recipe r where r.head/id = ?1")
 	List<Recipe> findRecipebyHeadidName(Integer id);
 
+
 	
 }
